@@ -54,7 +54,7 @@ func (ds Display) Print(f FileInfo, level uint8) {
 	dir = strings.TrimPrefix(dir, "./")
 
 	permissionsDataFormat := col(permissionsColor) + col(ownerColor) + col(groupColor)
-	defaultDataFormat := colWide(sizeColor, 8) + col(timeColor) + col(fileColor) +  col(hashColor)
+	defaultDataFormat := colWide(sizeColor, 10) + col(timeColor) + col(fileColor) +  col(hashColor)
 
 	indent := strings.Repeat("    ", int(level))
 

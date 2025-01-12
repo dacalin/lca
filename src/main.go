@@ -6,6 +6,8 @@ import (
 	"log"
 	"os"
 	"os/user"
+	"sort"
+	"strings"
 	"syscall"
 )
 
@@ -40,6 +42,11 @@ func processDirectory(path string, level uint8, depth uint8, hashType string, sh
 		log.Println("Error reading directory:", err)
 		return
 	}
+
+	// Sort files by name in alphabetical order (case-insensitive)
+	sort.Slice(files, func(i, j int) bool {
+		return strings.ToLower(files[i].Name()) < strings.ToLower(files[j].Name())
+	})
 
 	for _, file := range files {
 
