@@ -60,10 +60,11 @@ func (ds Display) Print(f FileInfo, level uint8) {
 
 	// Use ANSI colors
 	if ds.showAll {
+		permissions := f.Permissions().str + "("+f.Permissions().octal + ")"
 		// show all
 		fmt.Printf(
 			col(indentColor)+permissionsDataFormat+defaultDataFormat+"\n",
-			indent, f.Permissions(), f.Owner(), f.Group(), ds.formatSize(f.Size()),
+			indent, permissions, f.Owner(), f.Group(), ds.formatSize(f.Size()),
 			f.ModTime().Format(ds.datetimeFormat), dir+fileName, f.Hash(),
 		)
 	} else {

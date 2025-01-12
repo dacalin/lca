@@ -8,13 +8,15 @@ import (
 	"hash"
 	"io"
 	"os"
+	"strconv"
 	"time"
 )
+
 
 type FileInfo struct {
     isDir       bool
     name        string
-    permissions string
+    permissions FilePermissions
     owner       string
     group       string
     size        int64
@@ -23,9 +25,10 @@ type FileInfo struct {
     hashType    string
 }
 
-func NewFileInfo(permissions, owner, group string, size int64, modTime time.Time, name string, isDir bool, hashType string) FileInfo {
+func NewFileInfo(permissions uint32, owner, group string, size int64, modTime time.Time, name string, isDir bool, hashType string) FileInfo {
+
     fileInfo := FileInfo{
-        permissions: permissions,
+        permissions: NewFilePermissions(permissions, isDir),
         owner:       owner,
         group:       group,
         size:        size,
@@ -35,11 +38,20 @@ func NewFileInfo(permissions, owner, group string, size int64, modTime time.Time
         hashType: hashType,
     }
 
-    if hashType != "none" && fileInfo.isDir == false {
+    if hashType != "none" && !fileInfo.isDir {
         fileInfo.hash = fileInfo.calculateHash(hashType)
     }
 
     return fileInfo
+}
+
+func (f FileInfo) formatPermissions(perm uint32) string {
+    // Convert the decimal value 493 to an octal string (i.e., "755")
+    octStr := strconv.FormatUint(uint64(perm), 8)
+    fileMode := os.FileMode(perm) | os.ModeDir
+    fmt.Println(fileMode.String()) 
+
+    return octStr
 }
 
 func (f FileInfo) calculateHash(hashType string) string {
@@ -77,7 +89,7 @@ func (f FileInfo) Name() string {
     return f.name
 }
 
-func (f FileInfo) Permissions() string {
+func (f FileInfo) Permissions() FilePermissions {
     return f.permissions
 }
 
