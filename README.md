@@ -11,16 +11,19 @@
 To install the `lca` Debian package, follow these steps:
 
 1. Download the Debian package:
+
     ```bash
-    wget https://github.com/yourusername/lca/releases/download/v1.0.0/lca_debian.deb
+    wget https://github.com/dacalin/lca/releases/download/v1.0.0/lca_debian.deb
     ```
 
 2. Install the package using `dpkg`:
+
     ```bash
     sudo dpkg -i lca_debian.deb
     ```
 
 3. Resolve any dependencies:
+
     ```bash
     sudo apt-get install -f
     ```
@@ -30,21 +33,25 @@ To install the `lca` Debian package, follow these steps:
 If you prefer to build `lca` from source:
 
 1. Clone the repository:
+
     ```bash
-    git clone https://github.com/yourusername/lca.git
+    git clone https://github.com/dacalin/lca.git
     ```
 
 2. Navigate to the project directory:
+
     ```bash
     cd lca
     ```
 
 3. Build the project:
+
     ```bash
     make
     ```
 
 4. Install the binary:
+
     ```bash
     sudo make install
     ```
@@ -59,14 +66,34 @@ lca [options]
 
 ### Examples
 
-- **Basic Usage:**
+- **Display Help Information:**
     ```bash
     lca -h
     ```
 
-- **Advanced Feature:**
+- **Compute MD5 File Hashes:**
     ```bash
-    lca --feature example
+    lca --hash md5
+    ```
+
+- **Compute SHA1 File Hashes (Using Shorthand):**
+    ```bash
+    lca -H sha1
+    ```
+
+- **Show Permissions and Owners:**
+    ```bash
+    lca -p
+    ```
+
+- **Set Recursion Depth to 2:**
+    ```bash
+    lca -r 2
+    ```
+
+- **Combine Multiple Options:**
+    ```bash
+    lca --hash sha256 -p -r 3
     ```
 
 ## Documentation
