@@ -1,0 +1,7 @@
+Package: lca
+Version: 1.0.0
+Section: base
+Priority: optional
+Architecture: all
+Maintainer: casale.candoit@gmail.com
+Description: LCA: A tool for listing files with recursion
