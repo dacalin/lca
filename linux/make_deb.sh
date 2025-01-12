@@ -1,1 +1,1 @@
-dpkg-deb --build --root-owner-group linux
+dpkg-deb --build --root-owner-group linux lca.deb

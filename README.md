@@ -14,13 +14,13 @@ To install the `lca` Debian package, follow these steps:
 1. Download the Debian package:
 
     ```bash
-    wget https://github.com/dacalin/lca/releases/download/v1.0.0/lca_debian.deb
+    wget https://github.com/dacalin/lca/raw/4f7f6c4f255a07ff1f7bea2c790b65a5a8ddf98a/lca.deb
     ```
 
 2. Install the package using `dpkg`:
 
     ```bash
-    sudo dpkg -i lca_debian.deb
+    sudo dpkg -i lca.deb
     ```
 
 3. Resolve any dependencies:
