@@ -13,9 +13,14 @@ build:
 	cd src && GOOS=darwin GOARCH=arm64 go build -o ../darwin/arm64/$(BINARIES_DIR)/lca .
 
 ## Install the lca binary to /usr/local/bin
-install: build
-	@CURRENT_OS=$$(go env GOOS); \
-	CURRENT_ARCH=$$(go env GOARCH); \
+install: build just-install
+
+## Install the lca binary to /usr/local/bin
+just-install:
+	@CURRENT_OS=$$(uname -s | tr '[:upper:]' '[:lower:]'); \
+	CURRENT_ARCH=$$(uname -m); \
+	if [ "$$CURRENT_ARCH" = "x86_64" ]; then CURRENT_ARCH="amd64"; fi; \
+	if [ "$$CURRENT_ARCH" = "aarch64" ]; then CURRENT_ARCH="arm64"; fi; \
 	BINARY_PATH="$$CURRENT_OS/$$CURRENT_ARCH/$(BINARIES_DIR)/lca"; \
 	if [ -f "$$BINARY_PATH" ]; then \
 		echo "Installing binary: $$BINARY_PATH"; \

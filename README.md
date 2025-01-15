@@ -13,16 +13,54 @@ To install the `lca` Debian package, follow these steps:
 
 1. Download the Debian package:
 
+    #### Arch amd64
     ```bash
-    wget https://github.com/dacalin/lca/raw/refs/tags/v1.0.1/lca.deb
+    wget https://github.com/dacalin/lca/raw/refs/heads/main/linux/deb/lca-latest-amd64.deb
     ```
+    
+    or 
 
+    #### Arch arm64
+
+    ```bash
+    wget https://github.com/dacalin/lca/raw/refs/heads/main/linux/deb/lca-latest-arm64.deb
+    ```
+    
 2. Install the package using `dpkg`:
 
+    #### Arch amd64
+
     ```bash
-    sudo dpkg -i lca.deb
+    sudo dpkg -i lca-latest-amd64.deb
     ```
 
+    #### Arch arm64
+     ```bash
+    sudo dpkg -i lca-latest-arm64.deb
+    ```
+
+### From Binaries
+Binaries are pre-compiled for linux-amd64,linux-arm64, darwin-amd64 and darwin-arm64.
+You can install it in your system by copying the right binary file manually or with the makefile:
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/dacalin/lca.git
+    ```
+
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd lca
+    ```
+
+3. Install the right binary. It will read the system OS and ARCH and copy the right binary into /usr/local/bin directory:
+
+    ```bash
+    make just-install
+    ```
 
 ### From Source
 
@@ -92,10 +130,6 @@ lca [options]
     lca --hash sha256 -p -r 3
     ```
 
-## Documentation
-
-Comprehensive documentation is available [here](docs/README.md).
-
 ## Contributing
 
 Contributions are welcome! Please follow these steps:
@@ -114,8 +148,6 @@ Contributions are welcome! Please follow these steps:
     git push origin feature/YourFeature
     ```
 5. Open a pull request.
-
-Please ensure all tests pass and adhere to the code style guidelines.
 
 ## License
 
