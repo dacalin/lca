@@ -2,9 +2,9 @@
 
 ## Description
 
-**lca** is an alternative to `ls` that computes file hashes, provides color-coded, user-friendly output, and supports configurable recursion depth. It leverages both Go and Ruby to deliver robust performance and flexibility.
+**lca** is an alternative to `ls` that computes file hashes, provides color-coded, user-friendly output, and supports configurable recursion depth. It uses Go to deliver robust performance and flexibility.
 
-![alt text](image.png)
+![alt text](docs/image.png)
 ## Installation
 
 ### Using Debian Package
@@ -23,11 +23,6 @@ To install the `lca` Debian package, follow these steps:
     sudo dpkg -i lca.deb
     ```
 
-3. Resolve any dependencies:
-
-    ```bash
-    sudo apt-get install -f
-    ```
 
 ### From Source
 

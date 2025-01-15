@@ -13,7 +13,7 @@ import (
 
 func main() {
 	var hashType string
-	flag.StringVar(&hashType, "hash", "none", "hash type: md5, sha1, or none")
+	flag.StringVar(&hashType, "hash", "none", "hash type: md5, sha1, sha256 or none")
 	flag.StringVar(&hashType, "H", "none", "shorthand for --hash")
 	showAll := flag.Bool("p", false, "show permissions and owners")
 	recursionDepth := flag.Uint("r", 0, "recursion depth")
