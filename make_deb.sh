@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION="1.0.1"  # Set version
+VERSION="1.1.0"  # Set version
 
 dpkg-deb --build --root-owner-group linux/amd64 linux/deb/lca-${VERSION}-amd64.deb
 dpkg-deb --build --root-owner-group linux/arm64 linux/deb/lca-${VERSION}-arm64.deb

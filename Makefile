@@ -7,10 +7,10 @@ INSTALL_DIR=/usr/local/bin
 
 ## Build the lca binary
 build:
-	cd src && GOARCH=amd64 go build -o ../linux/amd64/$(BINARIES_DIR)/lca .
-	cd src && GOOS=linux GOARCH=arm64 go build -o ../linux/arm64/$(BINARIES_DIR)/lca .
-	cd src && GOOS=darwin GOARCH=amd64 go build -o ../darwin/amd64/$(BINARIES_DIR)/lca .
-	cd src && GOOS=darwin GOARCH=arm64 go build -o ../darwin/arm64/$(BINARIES_DIR)/lca .
+	cd src && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ../linux/amd64/$(BINARIES_DIR)/lca .
+	cd src && CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o ../linux/arm64/$(BINARIES_DIR)/lca .
+	cd src && CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o ../darwin/amd64/$(BINARIES_DIR)/lca .
+	cd src && GCGO_ENABLED=0 OOS=darwin GOARCH=arm64 go build -o ../darwin/arm64/$(BINARIES_DIR)/lca .
 
 ## Install the lca binary to /usr/local/bin
 install: build just-install
